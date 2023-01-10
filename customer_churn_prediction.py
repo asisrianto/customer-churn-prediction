@@ -86,7 +86,7 @@ for column in cleaned_df.columns:
   cleaned_df[column] = LabelEncoder().fit_transform(cleaned_df[column])
 print(cleaned_df.describe())
 
-"""Splitting the dataset"""
+"""Split the dataset"""
 
 X = cleaned_df.drop('Churn', axis=1)
 y = cleaned_df['Churn']
@@ -109,7 +109,7 @@ print(log_model)
 """Performance of training data (metrics)"""
 
 y_train_pred = log_model.predict(X_train)
-print('Classification Report Training Model (Logistic Regression): ')
+print('Classification Report Training Model: ')
 print(classification_report(y_train, y_train_pred))
 
 """Performance of training data (plots)"""
@@ -121,9 +121,9 @@ heatmap = sns.heatmap(confusion_matrix_df, annot=True, annot_kws={'size':14}, fm
 heatmap.yaxis.set_ticklabels(heatmap.yaxis.get_ticklabels(), rotation=0, ha='right', fontsize=14)
 heatmap.xaxis.set_ticklabels(heatmap.yaxis.get_ticklabels(), rotation=0, ha='right', fontsize=14)
 
-plt.title('Confusion Matrix for Training Model\n (Logistic Regression)', fontsize=18, color='darkblue')
-plt.ylabel('True Label', fontsize=14)
-plt.xlabel('Predicted Label', fontsize=14)
+plt.title('Confusion Matrix for Training Model', fontsize=18, color='darkblue')
+plt.ylabel('Actual', fontsize=14)
+plt.xlabel('Predicted', fontsize=14)
 plt.tight_layout()
 plt.savefig('performance of training data.png')
 plt.show()
@@ -131,7 +131,7 @@ plt.show()
 """Performance of test data (metrics)"""
 
 y_test_pred = log_model.predict(X_test)
-print('Classification Report Training Model (Logistic Regression): ')
+print('Classification Report Training Model: ')
 print(classification_report(y_test, y_test_pred))
 
 """Performance of test data (plots)"""
@@ -143,9 +143,9 @@ heatmap = sns.heatmap(confusion_matrix_df, annot=True, annot_kws={'size':14}, fm
 heatmap.yaxis.set_ticklabels(heatmap.yaxis.get_ticklabels(), rotation=0, ha='right', fontsize=14)
 heatmap.xaxis.set_ticklabels(heatmap.yaxis.get_ticklabels(), rotation=0, ha='right', fontsize=14)
 
-plt.title('Confusion Matrix for Training Model\n (Logistic Regression)', fontsize=18, color='darkblue')
-plt.ylabel('True Label', fontsize=14)
-plt.xlabel('Predicted Label', fontsize=14)
+plt.title('Confusion Matrix for Training Model', fontsize=18, color='darkblue')
+plt.ylabel('Actual', fontsize=14)
+plt.xlabel('Predicted', fontsize=14)
 plt.tight_layout()
 plt.savefig('performance of test data.png')
 plt.show()
